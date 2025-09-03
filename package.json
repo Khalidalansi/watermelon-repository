@@ -1,9 +1,13 @@
 {
     "name": "watermelon-repository",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "description": "Generic Repository Pattern for WatermelonDB",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Khalidalansi/watermelon-repository.git"
+    },
     "scripts": {
         "build": "tsc",
         "test": "jest"

@@ -2,16 +2,20 @@ import { Database } from "@nozbe/watermelondb";
 import { appSchema, tableSchema } from "@nozbe/watermelondb";
 import SQLiteAdapter from "@nozbe/watermelondb/adapters/sqlite";
 import { Model } from "@nozbe/watermelondb";
-import BaseRepository from "../src/BaseRepository";
+import BaseRepository from "../src";
 
 class User extends Model {
   static table = "users";
 }
+class UserRepository extends BaseRepository<User> {
+  constructor() {
+    super(User);
+  }
+}
 
 describe("BaseRepository", () => {
   let database: Database;
-  let userRepo: BaseRepository<User>;
-
+  let userRepo: UserRepository;
   beforeAll(() => {
     const adapter = new SQLiteAdapter({
       schema: appSchema({
@@ -31,7 +35,7 @@ describe("BaseRepository", () => {
     });
 
     BaseRepository.setDatabase(database);
-    userRepo = BaseRepository.instance.call(BaseRepository, User);
+    userRepo = UserRepository.instance();
   });
 
   it("should create a user", async () => {

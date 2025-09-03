@@ -38,14 +38,13 @@ export default class BaseRepository<T extends Model> {
   }
 
   // Singleton instance
-  static instance<R extends BaseRepository<any>>(
-    this: new (...args: any[]) => R,
-    modelClass: any
-  ): R {
+  static instance<R extends BaseRepository<any>>(this: new () => R): R {
     const className = this.name;
+
     if (!BaseRepository.instances.has(className)) {
-      BaseRepository.instances.set(className, new this(modelClass));
+      BaseRepository.instances.set(className, new this());
     }
+
     return BaseRepository.instances.get(className) as R;
   }
 

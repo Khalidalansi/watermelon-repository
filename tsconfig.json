@@ -3,7 +3,6 @@
     "target": "esnext",
     "module": "commonjs",
     "lib": ["esnext"],
-    "jsx": "react",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -11,7 +10,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "noEmitOnError": true,
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src"
