@@ -80,7 +80,7 @@ export default class UserRepository extends BaseRepository<User> {
 import UserRepository from "../repositories/UserRepository";
 
 async function demo() {
-  const userRepo = UserRepository.instance(User);
+  const userRepo = UserRepository.instance();
 
   // CREATE
   const user = await userRepo.create({ name: "Ali" });
@@ -106,7 +106,7 @@ async function demo() {
 ### Static
 
 * `BaseRepository.setDatabase(db: Database)` → Set global DB instance
-* `UserRepository.instance(ModelClass)` → Singleton instance
+* `UserRepository.instance()` → Singleton instance
 
 ### CRUD
 
@@ -160,7 +160,7 @@ import UserRepository from "../repositories/UserRepository";
 import { database } from "../db"; // your global Database instance
 
 async function batchExample() {
-  const userRepo = UserRepository.instance(User);
+  const userRepo = UserRepository.instance();
 
   const newUser = userRepo.prepareCreate({ name: "Hasan" });
 
